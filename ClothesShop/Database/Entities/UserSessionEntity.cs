@@ -13,6 +13,7 @@ namespace ClothesShop.Database.Entities
         public UserEntity? User { get; set; }
         public UserSessionEntity()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.CreatedOn = DateTime.UtcNow;
             this.UpdatedOn = this.CreatedOn;
             this.ExpiresOn = this.CreatedOn.AddMinutes(PageValues.SessionTime);
