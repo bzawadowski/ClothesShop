@@ -9,6 +9,7 @@
         public bool IsSent { get; set; }
         public bool IsDelivered { get; set; }
         public string? UserId { get; set; }
+        public UserEntity? User { get; set; }
         public ICollection<UserOrdersEntity> UserOrders { get; set; }
         public OrderEntity()
         {

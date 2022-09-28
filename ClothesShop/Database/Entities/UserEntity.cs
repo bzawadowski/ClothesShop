@@ -9,13 +9,13 @@ namespace ClothesShop.Database.Entities
         public int AddressId { get; set; }
         public UserSessionEntity? Session { get; set; }
         public AddressEntity? Address { get; set; }
+        public ICollection<OrderEntity> Orders { get; set; }
         public ICollection<ProductOpinionsEntity> UserOpinions { get; set; }
-        public ICollection<UserOrdersEntity> UserOrders { get; set; }
         public UserEntity()
         {
             this.Id = Guid.NewGuid().ToString();
             this.UserOpinions = new List<ProductOpinionsEntity>();
-            this.UserOrders = new List<UserOrdersEntity>();
+            this.Orders = new List<OrderEntity>();
         }
     }
 }
