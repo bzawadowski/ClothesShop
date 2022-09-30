@@ -10,6 +10,12 @@ namespace ClothesShop.Database.Configurations
         {
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.User).WithMany(x => x.Orders).HasForeignKey(x => x.UserId);
+
+            builder.Property(x => x.IsPaid).HasDefaultValue(false);
+            builder.Property(x => x.IsSent).HasDefaultValue(false);
+            builder.Property(x => x.IsDelivered).HasDefaultValue(false);
+            builder.Property(x => x.Id).HasDefaultValue(Guid.NewGuid().ToString());
+            builder.Property(x => x.CreatedOn).HasDefaultValue(DateTime.UtcNow);
         }
     }
 }

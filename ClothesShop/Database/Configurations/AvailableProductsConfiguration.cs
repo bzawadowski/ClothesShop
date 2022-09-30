@@ -11,6 +11,8 @@ namespace ClothesShop.Database.Configurations
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Product).WithMany(x => x.AvailableProducts).HasForeignKey(x => x.ProductId);
             builder.HasOne(x => x.Size).WithMany(x => x.AvailableProducts).HasForeignKey(x => x.SizeId);
+
+            builder.Property(x => x.InStock).HasDefaultValue(0);
         }
     }
 }

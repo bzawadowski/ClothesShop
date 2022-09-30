@@ -9,6 +9,9 @@ namespace ClothesShop.Database.Configurations
         public void Configure(EntityTypeBuilder<ProductMarkEntity> builder)
         {
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.IsPopular).HasDefaultValue(false);
+            builder.Property(x => x.IsPromoted).HasDefaultValue(false);
         }
     }
 }

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ClothesShop.Database.Configurations
 {
-    public class UserOrdersConfiguration : IEntityTypeConfiguration<UserOrdersEntity>
+    public class ProductOrdersConfiguration : IEntityTypeConfiguration<ProductOrdersEntity>
     {
-        public void Configure(EntityTypeBuilder<UserOrdersEntity> builder)
+        public void Configure(EntityTypeBuilder<ProductOrdersEntity> builder)
         {
             builder.HasKey(x => new { x.OrderId, x.ProductId });
             builder.HasOne(x => x.Product).WithMany(x => x.Orders).HasForeignKey(x => x.ProductId);

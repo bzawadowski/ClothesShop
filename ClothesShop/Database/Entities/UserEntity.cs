@@ -1,11 +1,24 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using ClothesShop.ConstValues;
+using Microsoft.AspNetCore.Identity;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    [DisplayColumn(DBValues.tableUser)]
     public class UserEntity : IdentityUser
     {
+        [DisplayName(DBValues.columnAddress)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = DBValues.errNullOrEmpty)]
+        [MaxLength(100, ErrorMessage = DBValues.errMaxLength)]
         public string? FullAddress { get; set; }
+        [DisplayName(DBValues.columnSessionKey)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = DBValues.errNullOrEmpty)]
+        [MaxLength(100, ErrorMessage = DBValues.errMaxLength)]
         public string? SessionId { get; set; }
+        [DisplayName(DBValues.columnAddressKey)]
+        [Required(ErrorMessage = DBValues.errNull)]
+        [Range(DBValues.valRangeGeneralMin, DBValues.valRangeIntMax)]
         public int AddressId { get; set; }
         public UserSessionEntity? Session { get; set; }
         public AddressEntity? Address { get; set; }

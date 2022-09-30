@@ -11,6 +11,9 @@ namespace ClothesShop.Database.Configurations
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Product).WithMany(x => x.Opinions).HasForeignKey(x => x.ProductId);
             builder.HasOne(x => x.User).WithMany(x => x.UserOpinions).HasForeignKey(x => x.UserId);
+
+            builder.Property(x => x.Id).HasDefaultValue(Guid.NewGuid().ToString());
+            builder.Property(x => x.CreatedOn).HasDefaultValue(DateTime.UtcNow);
         }
     }
 }
