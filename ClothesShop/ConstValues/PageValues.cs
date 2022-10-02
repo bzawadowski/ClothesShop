@@ -1,6 +1,6 @@
 ﻿namespace ClothesShop.ConstValues
 {
-    public static class PageValues
+    public struct PageValues
     {
         public const int SessionTime = 15;
     }
