@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ClothesShop.Database.Configurations
 {
+    /// <summary>
+    /// Configuration of Mark table
+    /// </summary>
     public class ProductMarkConfiguration : IEntityTypeConfiguration<ProductMarkEntity>
     {
         public void Configure(EntityTypeBuilder<ProductMarkEntity> builder)

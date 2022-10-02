@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ClothesShop.Database.Configurations
 {
+    /// <summary>
+    /// Configuration of Size table
+    /// </summary>
     public class SizeConfiguration : IEntityTypeConfiguration<SizeEntity>
     {
         public void Configure(EntityTypeBuilder<SizeEntity> builder)

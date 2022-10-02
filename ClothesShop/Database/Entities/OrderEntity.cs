@@ -4,11 +4,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    /// <summary>
+    /// Table thar represents Order made by client
+    /// </summary>
     [DisplayColumn(DBValues.tableOrder)]
     public class OrderEntity
     {
         [DisplayName(DBValues.columnOrderKey)]
-        [MaxLength(1000, ErrorMessage = DBValues.errMaxLength)]
+        [MaxLength(450, ErrorMessage = DBValues.errMaxLength)]
         public string? Id { get; set; }
         [DisplayName(DBValues.columnCreatedDate)]
         [Required(ErrorMessage = DBValues.errNull)]
@@ -26,10 +29,9 @@ namespace ClothesShop.Database.Entities
         public bool IsDelivered { get; set; }
         [DisplayName(DBValues.columnUserKey)]
         [Required(AllowEmptyStrings = false ,ErrorMessage = DBValues.errNullOrEmpty)]
-        [MaxLength(1000, ErrorMessage = DBValues.errMaxLength)]
         public string? UserId { get; set; }
-        public UserEntity? User { get; set; }
-        public ICollection<ProductOrdersEntity> UserOrders { get; set; }
+        public virtual UserEntity? User { get; set; }
+        public virtual ICollection<ProductOrdersEntity> UserOrders { get; set; }
         public OrderEntity()
         {
             this.Id = Guid.NewGuid().ToString();

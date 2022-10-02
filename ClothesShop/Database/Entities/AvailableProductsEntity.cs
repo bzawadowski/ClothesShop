@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    /// <summary>
+    /// Table that represents Available Products
+    /// </summary>
     [DisplayColumn(DBValues.tableAvailableProducts)]
     public class AvailableProductsEntity
     {
@@ -22,8 +25,8 @@ namespace ClothesShop.Database.Entities
         [Required(ErrorMessage = DBValues.errNull)]
         [Range(DBValues.valRangeGeneralMin, DBValues.valRangeIntMax)]
         public int SizeId { get; set; }
-        public ProductEntity? Product { get; set; }
-        public SizeEntity? Size { get; set; }
+        public virtual ProductEntity? Product { get; set; }
+        public virtual SizeEntity? Size { get; set; }
         public AvailableProductsEntity()
         {
             this.InStock = 0;

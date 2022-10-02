@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    /// <summary>
+    /// Table that represents Type of products
+    /// </summary>
     [DisplayColumn(DBValues.tableProductType)]
     public class ProductTypeEntity
     {
@@ -14,8 +17,8 @@ namespace ClothesShop.Database.Entities
         [Required(AllowEmptyStrings = false, ErrorMessage = DBValues.errNullOrEmpty)]
         [MaxLength(50, ErrorMessage = DBValues.errMaxLength)]
         public string? Name { get; set; }
-        public ICollection<ProductEntity> Products { get; set; }
-        public ICollection<SizeEntity> Sizes { get; set; }
+        public virtual ICollection<ProductEntity> Products { get; set; }
+        public virtual ICollection<SizeEntity> Sizes { get; set; }
         public ProductTypeEntity()
         {
             this.Sizes = new List<SizeEntity>();

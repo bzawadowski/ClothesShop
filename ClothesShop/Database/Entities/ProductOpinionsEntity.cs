@@ -4,11 +4,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    /// <summary>
+    /// Table that represents product Opinions
+    /// </summary>
     [DisplayColumn(DBValues.tableProductOpinion)]
     public class ProductOpinionsEntity
     {
         [DisplayName(DBValues.columnOpinionKey)]
-        [MaxLength(1000, ErrorMessage = DBValues.errMaxLength)]
+        [MaxLength(450, ErrorMessage = DBValues.errMaxLength)]
         public string? Id { get; set; }
         [DisplayName(DBValues.columnRate)]
         [Required(ErrorMessage = DBValues.errNull)]
@@ -27,10 +30,9 @@ namespace ClothesShop.Database.Entities
         public int ProductId { get; set; }
         [DisplayName(DBValues.columnUserKey)]
         [Required(AllowEmptyStrings = false, ErrorMessage = DBValues.errNullOrEmpty)]
-        [MaxLength(1000, ErrorMessage = DBValues.errMaxLength)]
         public string? UserId { get; set; }
-        public ProductEntity? Product { get; set; }
-        public UserEntity? User { get; set; }
+        public virtual ProductEntity? Product { get; set; }
+        public virtual UserEntity? User { get; set; }
         public ProductOpinionsEntity()
         {
             this.Id = Guid.NewGuid().ToString();

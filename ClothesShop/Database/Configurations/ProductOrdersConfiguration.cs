@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ClothesShop.Database.Configurations
 {
+    /// <summary>
+    /// Configuration of ProductOrders table
+    /// </summary>
     public class ProductOrdersConfiguration : IEntityTypeConfiguration<ProductOrdersEntity>
     {
         public void Configure(EntityTypeBuilder<ProductOrdersEntity> builder)

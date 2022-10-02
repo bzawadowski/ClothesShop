@@ -7,7 +7,7 @@
         public const string tableAvailableProducts = "AvailableProduct";
         public const string tableOrder = "Order";
         public const string tableProduct = "Product";
-        public const string tableProductMark = "ProductMark";
+        public const string tableProductMark = "Mark";
         public const string tableProductOpinion = "ProductOpinion";
         public const string tableProductType = "ProductType";
         public const string tableShop = "Shop";

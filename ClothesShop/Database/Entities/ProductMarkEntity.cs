@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    /// <summary>
+    /// Table that represents product Mark
+    /// </summary>
     [DisplayColumn(DBValues.tableProductMark)]
     public class ProductMarkEntity
     {
@@ -24,7 +27,7 @@ namespace ClothesShop.Database.Entities
         [DisplayName(DBValues.columnIsPromoted)]
         [Required(ErrorMessage = DBValues.errNull)]
         public bool IsPromoted { get; set; }
-        public ICollection<ProductEntity> Products { get; set; }
+        public virtual ICollection<ProductEntity> Products { get; set; }
         public ProductMarkEntity()
         {
             this.IsPopular = false;

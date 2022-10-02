@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    /// <summary>
+    /// Table thar represents Product in shop
+    /// </summary>
     [DisplayColumn(DBValues.tableProduct)]
     public class ProductEntity
     {
@@ -26,7 +29,7 @@ namespace ClothesShop.Database.Entities
         public string? Description { get; set; }
         [DisplayName(DBValues.columnIsItInStock)]
         [Required(ErrorMessage = DBValues.errNull)]
-        public bool IsItInStock { get; set; }
+        public bool? IsItInStock { get; set; }
         [DisplayName(DBValues.columnDiscount)]
         [Required(ErrorMessage = DBValues.errNull)]
         [Range(DBValues.valRangeZero, DBValues.valDiscountRange)]
@@ -47,11 +50,11 @@ namespace ClothesShop.Database.Entities
         [Required(ErrorMessage = DBValues.errNull)]
         [Range(DBValues.valRangeGeneralMin, DBValues.valRangeIntMax)]
         public int TypeId { get; set; }
-        public ProductMarkEntity? Mark { get; set; }
-        public ProductTypeEntity? Type { get; set; }
-        public ICollection<ProductOpinionsEntity> Opinions { get; set; }
-        public ICollection<AvailableProductsEntity> AvailableProducts { get; set; }
-        public ICollection<ProductOrdersEntity> Orders { get; set; }
+        public virtual ProductMarkEntity? Mark { get; set; }
+        public virtual ProductTypeEntity? Type { get; set; }
+        public virtual ICollection<ProductOpinionsEntity> Opinions { get; set; }
+        public virtual ICollection<AvailableProductsEntity> AvailableProducts { get; set; }
+        public virtual ICollection<ProductOrdersEntity> Orders { get; set; }
         public ProductEntity()
         {
             this.IsItInStock = true;

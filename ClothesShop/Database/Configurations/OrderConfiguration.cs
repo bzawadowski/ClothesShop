@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ClothesShop.Database.Configurations
 {
+    /// <summary>
+    /// Configuration of Order table
+    /// </summary>
     public class OrderConfiguration : IEntityTypeConfiguration<OrderEntity>
     {
         public void Configure(EntityTypeBuilder<OrderEntity> builder)
@@ -14,7 +17,6 @@ namespace ClothesShop.Database.Configurations
             builder.Property(x => x.IsPaid).HasDefaultValue(false);
             builder.Property(x => x.IsSent).HasDefaultValue(false);
             builder.Property(x => x.IsDelivered).HasDefaultValue(false);
-            builder.Property(x => x.Id).HasDefaultValue(Guid.NewGuid().ToString());
             builder.Property(x => x.CreatedOn).HasDefaultValue(DateTime.UtcNow);
         }
     }

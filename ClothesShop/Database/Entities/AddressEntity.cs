@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    /// <summary>
+    /// Table that represents Full Address
+    /// </summary>
     [DisplayColumn(DBValues.tableAddress)]
     public class AddressEntity
     {
@@ -26,8 +29,8 @@ namespace ClothesShop.Database.Entities
         [Required(AllowEmptyStrings = false, ErrorMessage = DBValues.errNullOrEmpty)]
         [MaxLength(50, ErrorMessage = DBValues.errMaxLength)]
         public string? Community { get; set; }
-        public ICollection<ShopEntity> Shops { get; set; }
-        public ICollection<UserEntity> Residents { get; set; }
+        public virtual ICollection<ShopEntity> Shops { get; set; }
+        public virtual ICollection<UserEntity> Residents { get; set; }
         public AddressEntity()
         {
             this.Shops = new List<ShopEntity>();

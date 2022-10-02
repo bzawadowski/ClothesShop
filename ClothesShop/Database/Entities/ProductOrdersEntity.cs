@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    /// <summary>
+    /// Table that represents order of products
+    /// </summary>
     [DisplayColumn(DBValues.tableProductOrders)]
     public class ProductOrdersEntity
     {
@@ -13,9 +16,9 @@ namespace ClothesShop.Database.Entities
         public int ProductId { get; set; }
         [DisplayName(DBValues.columnOrderKey)]
         [Required(AllowEmptyStrings = false, ErrorMessage = DBValues.errNullOrEmpty)]
-        [MaxLength(1000, ErrorMessage = DBValues.errMaxLength)]
+        [MaxLength(450, ErrorMessage = DBValues.errMaxLength)]
         public string? OrderId { get; set; }
-        public ProductEntity? Product { get; set; }
-        public OrderEntity? Order { get; set; }
+        public virtual ProductEntity? Product { get; set; }
+        public virtual OrderEntity? Order { get; set; }
     }
 }

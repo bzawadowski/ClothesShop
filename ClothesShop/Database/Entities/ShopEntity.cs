@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShop.Database.Entities
 {
+    /// <summary>
+    /// Table that represents stationary Shop with items
+    /// </summary>
     [DisplayColumn(DBValues.tableShop)]
     public class ShopEntity
     {
@@ -21,6 +24,6 @@ namespace ClothesShop.Database.Entities
         [DisplayName(DBValues.columnAddressKey)]
         [Range(DBValues.valRangeGeneralMin, DBValues.valRangeIntMax)]
         public int AddressId { get; set; }
-        public AddressEntity? Address { get; set; }
+        public virtual AddressEntity? Address { get; set; }
     }
 }
